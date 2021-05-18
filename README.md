@@ -10,7 +10,7 @@ src="https://img.shields.io/badge/BeEF-Termux-red?style=for-the-badge&logo=Githu
 ![](https://img.shields.io/github/stars/RaulXH/InstallerT-BeEF?style=flat-square&logo=Github) ![](https://img.shields.io/github/license/RaulXH/InstallerT-BeEF?style=flat-square&logo=Github) ![](https://img.shields.io/badge/Created-RaulXH-orange?style=flat-square&logo=Github)
 # Official website
 ```
-_https://beefproject.com/_
+https://beefproject.com/
 ```
 # Commands
 ```
