@@ -1,4 +1,3 @@
-# Termux-Beef-Installer
 <p align="center"><img 
 title="BeEf for Termux"
 src="https://img.shields.io/badge/BeEF-Termux-red?style=flat-square&logo=Github"
