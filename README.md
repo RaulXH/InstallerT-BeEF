@@ -8,6 +8,14 @@ src="https://img.shields.io/badge/BeEF-Termux-red?style=for-the-badge&logo=Githu
 <p align="center"> <img src="https://thehackrspace.com/wp-content/uploads/2019/06/beef-350x350.png?raw=true"/></p>
 
 # Commands
+```
+git clone https://github.com/RaulXH/InstallerT-BeEF/
+
+cd InstallerT-BeEF/
+
+chmod +x BeEF-Termux-OS && ./BeEF-Termux-OS
+
+```
 # Characteristics
 * *_Start beef anywhere in termux_*
 * *_This script adapts GeoIpDb to Termux_*
