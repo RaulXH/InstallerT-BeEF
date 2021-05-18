@@ -1,0 +1,58 @@
+13,17c13
+< GEOIP_PATH="$PREFIX/opt/GeoIP"
+< #
+< # Termux
+< #
+< BIN=$PREFIX/bin
+---
+> GEOIP_PATH="/opt/GeoIP"
+37c33
+<   if ! command_exists $BIN/cu``rl
+---
+>   if ! command_exists /usr/bin/curl
+39c35
+<     fatal "$BIN/curl is not installed"
+---
+>     fatal "/usr/bin/curl is not installed"
+41c37
+<   if ! command_exists $BIN/gunzip
+---
+>   if ! command_exists /bin/gunzip
+43c39
+<     fatal "$BIN/gunzip is not installed"
+---
+>     fatal "/bin/gunzip is not installed"
+45c41
+<   if ! command_exists $BIN/tar
+---
+>   if ! command_exists /bin/tar
+47c43
+<     fatal "$BIN/tar is not installed"
+---
+>     fatal "/bin/tar is not installed"
+52c48
+<   $BIN/mkdir -p "${GEOIP_PATH}"
+---
+>   /bin/mkdir -p "${GEOIP_PATH}"
+62,63c58,59
+<   #/usr/bin/curl -O https://Xgeolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz
+<   $BIN/curl -O https://web.archive.org/web/20191227182209/https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz
+---
+>   #/usr/bin/curl -O https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz
+>   /usr/bin/curl -O https://web.archive.org/web/20191227182209/https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz
+66,67c62,63
+<   $BIN/gunzip GeoLite2-City.tar.gz
+<   $BIN/tar xvf GeoLite2-City.tar
+---
+>   /bin/gunzip GeoLite2-City.tar.gz
+>   /bin/tar xvf GeoLite2-City.tar
+70c66
+<   $BIN/mv GeoLite2-City_*/* "${GEOIP_PATH}"
+---
+>   /bin/mv GeoLite2-City_*/* "${GEOIP_PATH}"
+73,74c69,70
+<   $BIN/rm GeoLite2-City.tar
+<   $BIN/rmdir GeoLite2-City_*
+---
+>   /bin/rm GeoLite2-City.tar
+>   /bin/rmdir GeoLite2-City_*
