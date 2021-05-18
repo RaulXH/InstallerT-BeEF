@@ -3,7 +3,7 @@
 
 Installer of the BeEf tool in termux.  Adaptation of packages and automation of processes.  Correctly
 # it is process
-<code><div style="text-align:center"><img src ="https://erwinbierens.com/post/images/logo2_400x400.jpg" /></div>
+<code><div style="text-align:center"><img src ="https://thehackrspace.com/wp-content/uploads/2019/06/beef-350x350.png" /></div>
 
 Fuente: https://www.iteramos.com/pregunta/34047/-github-readmemd-imagen-central-
 # View 
