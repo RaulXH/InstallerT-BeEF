@@ -226,6 +226,7 @@ __Paquetes
   install_beef
 clear
 NEED_COMPLET
+sleep 0.3
   finish
   #
   #
