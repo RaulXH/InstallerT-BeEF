@@ -1,6 +1,6 @@
 <p align="center"><img 
 title="BeEf for Termux"
-src="https://img.shields.io/badge/BeEF-Termux-red?style=flat-square&logo=Github"
+src="https://img.shields.io/badge/BeEF-Termux-red?style=for-the-badge&logo=Github"
 </p>
 
 
