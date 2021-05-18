@@ -1,0 +1,280 @@
+#!/data/data/com.termux/files/usr/bin/bash -e
+#
+#
+# Script programmed by Me [Raul XH]
+#
+#
+# I am not responsible for the misuse of this tool in termux.  Use it for Ethical purposes and not piracy.
+#
+#
+#
+#	SCRIPT ORIGINAL
+#
+#
+#
+#
+# Colors
+#
+#
+COLS=$(tput cols)
+declare -r RED='\e[0;50;31m'
+declare -r WHITE='\e[0;50;37m'
+declare -r XRED='\e[7;107;31m'
+declare -r FORT='\e[0m'
+declare -r XBLUE='\e[0;50;94m'
+declare -r MOR='\e[0;50;95m'
+declare -r BLUE='\e[2;104;30m'
+declare -r GREEN='\e[0;50;32m'
+#
+# Os linux-android
+#
+until [[ $OSTYPE =~ ^linux-andro* ]]
+do
+	printf "${RED} Installer only for Termux ${FORT}\n"
+	exit 0
+
+done
+#
+#lock 
+#
+# without root
+#
+#
+until [[ $UID != 0 ]]
+do
+	printf ""
+done
+#
+# Trap 
+#
+trap ''  20 &>/dev/null
+trap ''  INT &>/dev/null
+#
+#
+declare -r BIN=$PREFIX/bin
+until [[ -x $BIN/ruby ]]
+do
+	printf "\n${MOR}[] ${WHITE}Installing ruby ${MOR}[]${FORT}\n\n"
+	chmod +x Ruby-installer
+	./Ruby-installer
+	#
+	# 
+	#
+done
+#
+# lock proces
+#
+set -euo pipefail
+IFS=$'\n\t'
+PERM()
+{
+	#
+	local -r ICON=''
+	local -r ICON1=''
+	#
+	printf "${XBLUE}${ICON1} %-12s${FORT} : ${WHITE}Browser Exploitation Framework\n${FORT}" 'Package'
+	printf "${XBLUE}${ICON} %-12s${FORT} : ${WHITE}54 M\n${FORT}" 'Size'
+	printf "${XBLUE}${ICON} %-12s${FORT} : ${WHITE}10+\n${FORT}" 'Packages'
+	printf "${XBLUE} %-12s${FORT} : ${WHITE}Termux\n${FORT}" 'Platform'
+	printf "${XBLUE} %-12s${FORT}${XBLUE}\n" 'Internet connection'
+	for i in $(seq 1 $COLS);do echo -n '─';done
+	echo -e "${FORT}\nContinue with the installation? (y or n) " && read 
+	if [[ $REPLY = 'y' ]]
+	then
+		return 0
+	else
+		printf "${GREEN} ${WHITE}Thanks for using my script , see you.\n"
+		rm -rf lockbeef
+		exit 0
+	fi
+}
+__Paquetes()
+{
+	pkg update -y && pkg upgrade -y
+	# Instalation
+	#
+	apt install curl git build-essential openssl libsqlite libgnutls sqlite libxml2 libxslt autoconf ncurses ncurses-ui-libs  automake libtool bison nodejs openssl-tool libgc libzopfli lzlib readline ncurses-utils -y
+}
+#
+#
+check_rubygems () {
+    local -r ICON=''
+	printf "${MOR}${ICON} Updating gems...\n${FORT}"
+	if [ "$(gem list -i rubygems-update 2>/dev/null)" = "false" ]; then
+        gem install --no-document --verbose rubygems-update
+fi
+update_rubygems
+}
+check_bundler () {
+
+  printf "\n${MOR}[] Detecting bundler gem...${FORT}"
+
+  until [[ -x $BIN/bundler ]]
+  do
+	  printf "${MOR}[] Installing bundler"
+	  gem install bundler
+	  #
+  done
+}
+install_beef () { 
+	local -r XGREEN='\e[2;50;92m'
+	local -r ICON=''
+  echo -e "\n${XGREEN}[${ICON}] Installing required Ruby gems...\n"
+
+  if [ -w Gemfile.lock ]
+  then
+    $PREFIX/bin/rm Gemfile.lock
+  fi
+#
+    bundle install --without test development
+#
+}
+finish () {
+	BANNER_TERMUX
+	
+	local -r A='\e[1;40;97m'
+	M=$(($(($COLS/2))+2))
+#
+#
+for i in $(seq 1 $COLS);do echo -n '─';done
+printf "\t${A}%${M}s${FORT}${XBLUE}\n" 'BeEf Installer Termux'
+for i in $(seq 1 $COLS);do echo -n '─';done
+
+#
+	local -r YELOW='\e[2;50;33m'
+	local -r X='●'
+	local COLS=$(tput cols)
+	printf "
+${YELOW}[●]${WHITE} Installation correctly
+${YELOW}[$X] ${WHITE}run: ${GREEN}beef
+
+${YELOW}[$X] ${WHITE}Run ${GREEN}./update-geoipdb${WHITE} to install the Maxmind GeoIP database
+
+${YELOW}[$X]${WHITE} User: ${GREEN}beef ${XBLUE}| ${WHITE}Password: ${GREEN}1234
+
+${YELOW}[$X] ${WHITE}Review the wiki for important configuration information: https://github.com/beefproject/beef/wiki/Configuration
+
+${FORT}${XBLUE}"
+	for i in $(seq 1 $COLS);do echo -n '─';done
+	echo -e "${FORT}"
+	trap -  INT
+	trap -  20
+}
+BEEF_XH()
+{
+	cd 
+	local -r DIR='beef'
+	rm -rf $DIR
+	local -r GITHUB='https://github.com/beefproject/beef'
+	#
+	printf "\n${BLUE}| Cloning BeEF repository |${FORT}\n"
+	git clone $GITHUB
+	cd $DIR
+}
+NEED_COMPLET()
+{
+	local -r NAME='update-geoipdb'
+	rm -rf $NAME
+	mv .update-geoipdb $NAME 2>/dev/null
+	#
+	#  settings
+	# 
+	sed -i  's/passwd: "beef"/passwd: "1234"/' config.yaml
+	sed -n 's/\opt\/*/\data\/data\/com.termux\/files\/usr&/p' config.yaml
+	sed -n 's/\/opt\/metasploit-*f/\/data\/data\/com.termux\/files\/usr&/p' extensions/metasploit/config.yaml
+	#
+	# Beef form bin
+	#
+	ln -s $PWD/beef $PREFIX/bin/beef
+	#
+}
+main () {
+	#
+	#
+	# Linux-android
+	#
+	#
+	#
+
+	local -r A='\e[1;40;97m'
+	M=$(($(($COLS/2))+2))
+  #clear
+  BANNER_TERMUX
+#
+for i in $(seq 1 $COLS);do echo -n '─';done
+printf "\t${A}%${M}s${FORT}${XBLUE}\n" 'BeEf Installer Termux'
+for i in $(seq 1 $COLS);do echo -n '─';done
+
+PERM
+BEEF_XH
+__Paquetes
+  check_rubygems
+  check_bundler
+  install_beef
+clear
+NEED_COMPLET
+  finish
+  #
+  #
+  #
+  # Installer by TERMUX [ credit to RAUL ]
+  #
+  #
+  #
+}
+BANNER_TERMUX()
+{
+	local -r LIGTH='\e[2;50;36m'
+printf "
+                           ;                      
+                          'kl                     
+                          .d.lc.                  
+                           cd  ;c:.               
+                            'k:  .,cc,            
+${LIGTH}sᴄʀɪᴘᴛ ᴄʀᴇᴀᴛᴇᴅ ʙʏ ʀᴀᴜxʜ${FORT}       :k:.,c;,clc.        
+                                ,xl.:K0l,lx,      
+                                  lK. lWWk,dx     
+    .                   ..';:clloxOd   xWWWdkx    
+    cdl;           .cxO00OkkO'.      'oNWWWWXN    
+    .d ;o       .lO0xdooooo0. .,cdOKWWWWWWWWWk    
+     k ..x.   .dKkdooooooodKONWWWWWWWWWWWWWXc     
+     k.k,.kc'lNOoooooooxOKNWWWWWWWWWWWWW0l'       
+     ;xlNl ..k0ooooooxKWXckWWWWWWWWWWK:.          
+      ,xNWN0KW0ooood0WXl  oWWWWWWWWWWc            
+        .ckXWWKoooxXWWKO0NWWWWWWWWWWWX            
+            cNxooONWWWWWWWWWWWWWWWWWWWc           
+           'Nkod0WWWWWWWWWWWWWWWWWWWWWc           
+         c0kxxxxkxk0NWWWWWWWWWWWWWWWWO            
+         'XWWWWWWNKkxNWWWWWWWWWWWWWNl             
+         Kd:NWWWWoxWKKWWWWWWWWWWXk:               
+        ,X 'XWWW0..WWWWWWWWXxc'.                  
+         dk;.''',lKWWWWW0l.                       
+          .:okNWWWWWWNx'                          
+               oKWWXd.                            
+
+${XBLUE}"
+#
+# Banner creado por mí
+#
+}
+main
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#		[ Raul XH ]
+#
+#
+#
+#		[ Panamá ]
+#
+#
+#
