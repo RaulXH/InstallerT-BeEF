@@ -60,6 +60,7 @@ do
 	chmod +x Ruby-Installer
 	./Ruby-Installer
         rm -rf $PWD/Ruby-Installer
+        clear
 	#
 	# 
 	#
