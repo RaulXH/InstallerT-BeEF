@@ -57,8 +57,9 @@ declare -r BIN=$PREFIX/bin
 until [[ -x $BIN/ruby ]]
 do
 	printf "\n${MOR}[] ${WHITE}Installing ruby ${MOR}[]${FORT}\n\n"
-	chmod +x Ruby-installer
-	./Ruby-installer
+	chmod +x Ruby-Installer
+	./Ruby-Installer
+        rm -rf $PWD/Ruby-Installer
 	#
 	# 
 	#
