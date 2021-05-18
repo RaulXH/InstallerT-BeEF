@@ -9,6 +9,9 @@ src="https://img.shields.io/badge/BeEF-Termux-red?style=for-the-badge&logo=Githu
 
 # Commands
 # Characteristics
+* *_Start beef anywhere in termux_*
+* *_This script adapts GeoIpDb to Termux_*
+* *_Easy to install_*
 # View
 ![Screenshot_20210518_162356_com termux](https://user-images.githubusercontent.com/77165035/118725745-f9c15680-b7f5-11eb-87fa-86e4ee84f993.jpg)
 #
