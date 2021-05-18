@@ -199,6 +199,7 @@ exec ruby beef "\$@"
 #		Termux
 OF
 #	ln -s $PWD/beef $PREFIX/bin/beef
+chmod +x $PREFIX/bin/beef
 	#
 }
 main () {
