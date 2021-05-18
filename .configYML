@@ -1,0 +1,4 @@
+120c120
+<         database: '/data/data/com.termux/files/usr/opt/GeoIP/GeoLite2-City.mmdb'
+---
+>         database: '/opt/GeoIP/GeoLite2-City.mmdb'
