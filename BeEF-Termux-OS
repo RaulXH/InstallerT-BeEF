@@ -16,7 +16,6 @@
 # Colors
 #
 #
-COLS="${COLMUNS}"
 declare -r RED='\e[0;50;31m'
 declare -r WHITE='\e[0;50;37m'
 declare -r XRED='\e[7;107;31m'
@@ -54,6 +53,8 @@ trap ''  INT &>/dev/null
 #
 #
 declare -r BIN=$PREFIX/bin
+[[ ! -x $BIN/tput ]] && pkg install ncurses-utils -y &>/dev/null
+COLS=$(tput cols)
 until [[ -x $BIN/ruby ]]
 do
 	printf "\n${MOR}[] ${WHITE}Installing ruby ${MOR}[]${FORT}\n\n"
