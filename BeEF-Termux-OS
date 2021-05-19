@@ -16,7 +16,7 @@
 # Colors
 #
 #
-COLS=$(tput cols)
+COLS="${COLMUNS}"
 declare -r RED='\e[0;50;31m'
 declare -r WHITE='\e[0;50;37m'
 declare -r XRED='\e[7;107;31m'
