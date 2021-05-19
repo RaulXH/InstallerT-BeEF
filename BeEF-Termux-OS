@@ -184,6 +184,7 @@ NEED_COMPLET()
 	#
 	#  settings
 	# 
+        cp $SCRIPT_OLD/.set-new-pass.rb set-new-pass.rb
 	sed -i  's/passwd: "beef"/passwd: "1234"/' config.yaml
 	sed -n 's/\opt\/*/\data\/data\/com.termux\/files\/usr&/p' config.yaml
 	sed -n 's/\/opt\/metasploit-*f/\/data\/data\/com.termux\/files\/usr&/p' extensions/metasploit/config.yaml
