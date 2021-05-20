@@ -187,7 +187,7 @@ NEED_COMPLET()
 	# 
         cp $SCRIPT_OLD/.set-new-pass.rb set-new-pass.rb
 	sed -i  's/passwd: "beef"/passwd: "1234"/' config.yaml
-	sed -i  's/usr\/share\/metas.*/data\/data\/com.termux\/files\/usr\/opt\/metasploit-framework\//p' extensions/metasploit/config.yaml
+	#sed -i  's/usr\/share\/metas.*/data\/data\/com.termux\/files\/usr\/opt\/metasploit-framework\//p' extensions/metasploit/config.yaml
 	# Beef form bin
 	#
 	cat <<- OF > $PREFIX/bin/beef-xss
