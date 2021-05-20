@@ -187,8 +187,8 @@ NEED_COMPLET()
 	# 
         cp $SCRIPT_OLD/.set-new-pass.rb set-new-pass.rb
 	sed -i  's/passwd: "beef"/passwd: "1234"/' config.yaml
-	sed -i 's/\opt\/*/\data\/data\/com.termux\/files\/usr&/p' config.yaml
-	sed -i 's/\/opt\/metasploit-*f/\/data\/data\/com.termux\/files\/usr&/p' extensions/metasploit/config.yaml
+	sed -i 's/\opt\/*/\data\/data\/com.termux\/files\/usr\/&/p' config.yaml
+	sed -i 's/\/opt\/metasploit-*f/\/data\/data\/com.termux\/files\/usr\/&/p' extensions/metasploit/config.yaml
 	#
 	# Beef form bin
 	#
