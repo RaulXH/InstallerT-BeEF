@@ -21,6 +21,10 @@ cd InstallerT-BeEF/
 chmod +x BeEF-Termux-OS && ./BeEF-Termux-OS
 
 ```
+# Run
+```
+cd ~/beef && beef-xss
+```
 # Characteristics
 * *_Start beef anywhere in termux_*
 * *_This script adapts GeoIpDb to Termux_*
