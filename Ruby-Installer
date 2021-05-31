@@ -26,10 +26,11 @@ YELOW="\e[0;50;33m"
 XH='\e[7;107;31m'
 FORT="\e[0m"
 #
+[ -x $PREFIX/bin/axel ] && pkg install axel -y &>/dev/null # installed Axel
 function installruby()
 {
 	
-	echo -e "\n${GREEN}[*] ${AGUA}Installing ${RED}ruby 2.7.2${GREEN} [*]${FORT}\n"
+	
 	sleep 0.3
 	ARR=$(dpkg --print-architecture)
 	if [[ $ARR = "arm" ]]
