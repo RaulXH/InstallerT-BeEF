@@ -130,6 +130,7 @@ install_beef () {
     $PREFIX/bin/rm Gemfile.lock
   fi
 #
+sleep 0.4
     bundle install --without test development
 #
 }
