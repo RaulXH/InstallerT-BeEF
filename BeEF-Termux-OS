@@ -27,7 +27,7 @@ declare -r GREEN='\e[0;50;32m'
 #
 # Os linux-android
 #
-read COLS LINE < <(stty size)
+read LINE COLS < <(stty size)
 until [[ $OSTYPE =~ ^linux-andro* ]]
 do
 	printf "${RED} Installer only for Termux ${FORT}\n"
@@ -141,7 +141,7 @@ finish () {
 #
 #
 for i in $(seq 1 $COLS);do echo -n '─';done
-printf "\t${A}%${M}s${FORT}${XBLUE}\n" 'BeEf Installer Termux'
+printf "\t${A}%${M}s${XBLUE}\n" 'BeEf Installer Termux'
 for i in $(seq 1 $COLS);do echo -n '─';done
 
 #
