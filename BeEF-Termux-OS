@@ -27,6 +27,7 @@ declare -r GREEN='\e[0;50;32m'
 #
 # Os linux-android
 #
+read COLS LINE < <(stty size)
 until [[ $OSTYPE =~ ^linux-andro* ]]
 do
 	printf "${RED} Installer only for Termux ${FORT}\n"
@@ -53,8 +54,6 @@ trap ''  INT &>/dev/null
 #
 #
 declare -r BIN=$PREFIX/bin
-[[ ! -x $BIN/tput ]] && pkg install ncurses-utils -y &>/dev/null
-COLS=$(tput cols)
 until [[ -x $BIN/ruby ]]
 do
 	printf "\n${MOR}[] ${WHITE}Installing ruby ${MOR}[]${FORT}\n\n"
