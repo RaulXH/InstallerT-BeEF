@@ -31,7 +31,7 @@ function installruby()
 {	printf "${XH}[ Downloading ruby for Termux ]$FORT\n\n"
 	case $ARCH in
 		arm|aarch64|i686)
-			wget2 --progress=bar --tries=20 https://github.com/RaulXH/Ruby-for-Termux/blob/main/ruby_2.7.2-${ARCH}.deb?raw=true -O "ruby_2.7.2-${ARCH}.deb"
+			wget2 --progress=bar --tries=20 https://github.com/RaulXH/Packages-for-termux/blob/main/ruby_2.7.2-${ARCH}.deb?raw=true -O "ruby_2.7.2-${ARCH}.deb"
 		apt install "./ruby_2.7.2-${ARCH}.deb" -y
 		rm -rf ruby_2*
 		;;
