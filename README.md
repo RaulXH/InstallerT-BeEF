@@ -33,7 +33,7 @@ cd ~/beef && beef-xss
 # Warning
 I am not responsible for the misuse of this tool.  Focus on ethics and not piracy
 # View
-![Screenshot_20210518_162356_com termux](https://user-images.githubusercontent.com/77165035/118725745-f9c15680-b7f5-11eb-87fa-86e4ee84f993.jpg)
+![Screenshot_20210814_161728_com termux](https://user-images.githubusercontent.com/77165035/129460252-4bcab1c3-069f-4680-a523-f182f6201eb5.jpg)
 #
 ![Screenshot_20210518_162929_com termux](https://user-images.githubusercontent.com/77165035/118726165-8d932280-b7f6-11eb-81d8-6ad535895e41.jpg)
 # Browser
